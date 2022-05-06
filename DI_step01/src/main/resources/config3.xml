@@ -4,11 +4,12 @@
        xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!-- Printer printer = new Printer(); -->
+    <!-- Printer mprinter = new MonoPrinter(); -->
     <bean id="mprinter" class="com.mono.di.ui.MonoPrinter"/>
+    <!-- Printer cprinter = new ColorPrinter(); -->
     <bean id="cprinter" class="com.mono.di.ui.ColorPrinter"/>
 
-    <!-- Hello hello = new Hello(); -->
+    <!-- Hello hello = new Hello("SPRING", cprinter); // p태그로 파라미터를 바로 입력 -->
     <bean id="hello" class="com.mono.di.entity.Hello" p:name="SPRING" p:printer-ref="cprinter"/>
 
 </beans>

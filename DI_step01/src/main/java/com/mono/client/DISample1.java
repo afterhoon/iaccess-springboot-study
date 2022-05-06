@@ -1,27 +1,17 @@
 package com.mono.client;
 
 import com.mono.di.entity.Hello;
-import com.mono.di.ui.BluePrinter;
-import com.mono.di.ui.ColorPrinter;
-import com.mono.di.ui.MonoPrinter;
-import com.mono.di.ui.Printer;
-
-import java.util.ArrayList;
-import java.util.Collection;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class DISample1 {
+    /* config.xml의 bean에서 setter 방식을 이용 */
     public static void main(String[] args) {
-        Printer printer = new ColorPrinter();
-        Printer printer2 = new MonoPrinter();
-        Printer printer3 = new BluePrinter();
-//        Hello hello = new Hello(printer3);
-//        hello.print("Hello");
 
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:config.xml");
 
-        Collection<Printer> printers = new ArrayList<>();
-        printers.add(printer);
-        printers.add(printer2);
-        printers.add(printer3);
-        printers.forEach(p->p.print("Hello!!!"));
+        Hello hello = ctx.getBean(Hello.class);
+        hello.print("Hello...");
+
     }
 }
