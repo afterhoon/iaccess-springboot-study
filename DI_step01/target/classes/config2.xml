@@ -3,18 +3,19 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!-- Printer printer = new Printer(); -->
+    <!-- Printer mprinter = new MonoPrinter(); -->
     <bean id="mprinter" class="com.mono.di.ui.MonoPrinter"/>
+    <!-- Printer cprinter = new ColorPrinter(); -->
     <bean id="cprinter" class="com.mono.di.ui.ColorPrinter"/>
 
-    <!-- Hello hello = new Hello(); -->
+    <!-- Hello hello = new Hello(cprinter, "Green"); -->
     <bean id="hello" class="com.mono.di.entity.Hello">
 
+        <!-- 첫번째(index:0) 인자 -->
         <constructor-arg index="0" ref="cprinter"/>
+        <!-- 두번째(index:1) 인자 -->
         <constructor-arg index="1" value="Green"/>
 
-        <!-- setter 방식 -->
-<!--        <property name="printer" ref="cprinter"/>-->
     </bean>
 
 </beans>

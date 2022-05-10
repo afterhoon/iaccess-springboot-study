@@ -14,4 +14,10 @@
         <property name="printer" ref="cprinter"/>
     </bean>
 
+    <!-- Hello hello = new Hello(); -->
+    <bean id="protohello" class="com.mono.di.entity.Hello" scope="prototype">
+        <!-- hello.setPrinter(cprinter); // setter 방식 -->
+        <property name="printer" ref="cprinter"/>
+    </bean>
+
 </beans>
